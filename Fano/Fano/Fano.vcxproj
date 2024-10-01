@@ -138,7 +138,7 @@
   <ItemGroup>
     <ClCompile Include="Coding.cpp" />
     <ClCompile Include="DictSymbol.cpp" />
-    <ClCompile Include="Encoding.cpp" />
+    <ClCompile Include="Decoding.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ProcessFile.cpp" />

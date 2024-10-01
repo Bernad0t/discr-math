@@ -7,8 +7,7 @@ class FanoParametrs {
 public:
 	int startProcess;
 	int endProcess;
-	int doneSize;
-	FanoParametrs(int startProcess, int endProcess, int doneSize);
+	FanoParametrs(int startProcess, int endProcess);
 };
 
 class Stack {

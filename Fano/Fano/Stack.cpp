@@ -1,9 +1,8 @@
 #include "./Stack.h"
 
-FanoParametrs::FanoParametrs(int startProcess, int endProcess, int doneSize) {
+FanoParametrs::FanoParametrs(int startProcess, int endProcess) {
 	this->startProcess = startProcess;
 	this->endProcess = endProcess;
-	this->doneSize = doneSize;
 }
 
 Stack::Tree::List::List(FanoParametrs* a) {

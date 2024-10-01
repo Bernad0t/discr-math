@@ -22,12 +22,12 @@ private:
 	string result;
 };
 
-class Encoding {
+class Decoding {
 public:
 	void PrintInFile();
-	Encoding(ifstream& codesFile);
-	string ProcessEncoding(ifstream& encodeFile);
-	string ProcessEncodingBy(ifstream& encodeFile);
+	Decoding(ifstream& codesFile);
+	string ProcessDecoding(ifstream& encodeFile);
+	string ProcessDecodingBy(ifstream& encodeFile);
 private:
 	string originalText;
 	char* FindSymbol(string code);

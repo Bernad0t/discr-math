@@ -10,8 +10,8 @@ bool compare(const FreqSymbol left, const FreqSymbol right)
 
 ProcessFileOriginal::ProcessFileOriginal() {
 	frequency = new vector<FreqSymbol>;
-	(*frequency).resize(128);
-	for (int i = 0; i < 128; i++) {
+	(*frequency).resize(256);
+	for (int i = 0; i < 256; i++) {
 		(*frequency)[i].freq = 0;
 	}
 }

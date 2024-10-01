@@ -2,13 +2,13 @@
 #include "./ProcessFile.h"
 #include <bitset>
 
-Encoding::Encoding(ifstream& codesFile) {
+Decoding::Decoding(ifstream& codesFile) {
 	ProcessFileCodes processFileCodes;
 	codes = processFileCodes.GetCodes(codesFile);
 	originalText = processFileCodes.originalText;
 }
 
-char* Encoding::FindSymbol(string code) {
+char* Decoding::FindSymbol(string code) {
 	char* result = nullptr;
 	for (auto&& codeChar : (*codes)) {
 		if (code == codeChar.code) {
@@ -20,7 +20,7 @@ char* Encoding::FindSymbol(string code) {
 	return result;
 }
 
-void Encoding::ProcessLine(string line) {
+void Decoding::ProcessLine(string line) {
 	string code;
 	for (int i = 0; i < line.size(); i++) {
 		code += line[i];
@@ -32,7 +32,7 @@ void Encoding::ProcessLine(string line) {
 	}
 }
 
-string Encoding::ProcessEncoding(ifstream& encodeFile) {
+string Decoding::ProcessDecoding(ifstream& encodeFile) {
 	string line;
 	result.clear();
 	while (getline(encodeFile, line)) {
@@ -40,7 +40,7 @@ string Encoding::ProcessEncoding(ifstream& encodeFile) {
 	}
 	return result;
 }
-string Encoding::ProcessEncodingBy(ifstream& encodeFile) {
+string Decoding::ProcessDecodingBy(ifstream& encodeFile) {
 	string line;
 	string str;
 	string res;

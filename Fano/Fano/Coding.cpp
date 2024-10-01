@@ -36,18 +36,17 @@ int Coding::Med(int startProcess, int endProcess) {
 
 void Coding::Fano() {
 	Stack stack;
-	stack.push(new FanoParametrs(0, enterArr->size() - 1, 0));
+	stack.push(new FanoParametrs(0, enterArr->size() - 1));
 	while (!stack.empty()){
 		FanoParametrs* topStack = stack.pop();
-		int newDoneSize = topStack->doneSize + 1;
 		int med = Med(topStack->startProcess, topStack->endProcess);
 		for (int i = topStack->startProcess; i <= topStack->endProcess; i++) {
 			(*doneArr)[i].code += i > med ? "1" : "0";
 		}
 		if (med > topStack->startProcess)
-			stack.push(new FanoParametrs(topStack->startProcess, med, newDoneSize));
+			stack.push(new FanoParametrs(topStack->startProcess, med));
 		if (topStack->endProcess > med + 1)
-			stack.push(new FanoParametrs(med + 1, topStack->endProcess, newDoneSize));
+			stack.push(new FanoParametrs(med + 1, topStack->endProcess));
 		delete topStack;
 	}
 	for (auto&& element : originalText) {

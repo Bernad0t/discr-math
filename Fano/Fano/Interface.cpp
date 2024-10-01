@@ -4,10 +4,10 @@
 
 void Interface::ProcessEncoding() {
 	ifstream codesFile("C:/Games/DM/CODES.txt");
-	Encoding encoding(codesFile);
+	Decoding encoding(codesFile);
 	codesFile.close();
 	ifstream encodeFile("C:/Games/DM/CODED_FILE.txt");
-	string result = encoding.ProcessEncoding(encodeFile);
+	string result = encoding.ProcessDecoding(encodeFile);
 	encodeFile.close();
 	cout << result << endl;
 }
@@ -31,10 +31,10 @@ void Interface::ProcessCoding() {
 
 void Interface::ProcessEncodingBy() {
 	ifstream codesFile("C:/Games/DM/CODES.txt");
-	Encoding encoding(codesFile);
+	Decoding encoding(codesFile);
 	codesFile.close();
 	ifstream encodeFile("C:/Games/DM/CODED_FILE_BY.txt");
-	string result = encoding.ProcessEncodingBy(encodeFile);
+	string result = encoding.ProcessDecodingBy(encodeFile);
 	encodeFile.close();
 	cout << result << endl;
 }

@@ -47,7 +47,7 @@
     <ClCompile Include="DictSymbol.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Encoding.cpp">
+    <ClCompile Include="Decoding.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Interface.cpp">
