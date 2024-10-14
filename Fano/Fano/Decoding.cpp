@@ -1,6 +1,7 @@
 #include "./Coding.h"
 #include "./ProcessFile.h"
 #include <bitset>
+#include <iostream>
 
 Decoding::Decoding(ifstream& codesFile) {
 	ProcessFileCodes processFileCodes;
@@ -40,21 +41,31 @@ string Decoding::ProcessDecoding(ifstream& encodeFile) {
 	}
 	return result;
 }
+
 string Decoding::ProcessDecodingBy(ifstream& encodeFile) {
 	string line;
 	string str;
-	string res;
 	int fakeBits = -1;
+	bool flagNumberLine = false;
 	while (getline(encodeFile, line)) {
 		if (fakeBits == -1)
 			fakeBits = line[0];
+		if (flagNumberLine) {
+			str += "1010";
+			flagNumberLine = false;
+		}
 		for (int i = 0; i < line.length(); i++) {
 			bitset<8> code(line[i]);
 			str += code.to_string();
 		}
+		flagNumberLine = true;
 	}
 	str = str.substr(8 + fakeBits);
 	result.clear();
 	ProcessLine(str);
 	return result;
+}
+
+Decoding::~Decoding() {
+	delete codes;
 }

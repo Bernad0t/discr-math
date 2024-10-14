@@ -3,9 +3,9 @@
 
 
 class Interface {
-	void ProcessEncoding();
+	void ProcessDecoding();
 	void ProcessCoding();
-	void ProcessEncodingBy();
+	void ProcessDecodingBy();
 public:
 	void ProcessUser();
 };

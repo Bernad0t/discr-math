@@ -18,6 +18,8 @@ Coding::Coding(ifstream& file) {
 }
 
 int Coding::Med(int startProcess, int endProcess) {
+	if (startProcess == endProcess)
+		return endProcess;
 	float firstSum = 0;
 	for (int i = startProcess; i <= endProcess - 1; i++) {
 		firstSum += (*enterArr)[i].freq;
@@ -62,7 +64,18 @@ void Coding::PrintConsole() {
 
 void Coding::PrintCodesInFile(ofstream& file) {
 	for (auto&& symbol : (*doneArr)) {
-		file << symbol.key << " " << symbol.code << endl;
+		char key = symbol.key;
+		int countAddSymbols = 8 - symbol.code.length() % 8;
+		bitset<8> byte = countAddSymbols;
+		string code = byte.to_string<char, char_traits<char>, allocator<char> >() + string(countAddSymbols, '0') + symbol.code;
+		stringstream ss(code);
+		file << key;
+		for (int i = 0; i < code.length() / 8; i++) {
+			bitset<8> codeBits;
+			ss >> codeBits;
+			file << (char)codeBits.to_ulong();
+		}
+		file << endl;
 	}
 }
 
@@ -82,10 +95,16 @@ void Coding::PrintBynaryFile(ofstream& file) {
 	for (int i = 0; i < result.length() / 8; i++) {
 		bitset<8> byte;
 		sstream >> byte;
+		char a = char(byte.to_ulong());
 		file << char(byte.to_ulong());
 	}
 }
 
 void Coding::PrintInFile(ofstream& file) {
 	file << result;
+}
+
+Coding::~Coding() {
+	delete doneArr;
+
 }

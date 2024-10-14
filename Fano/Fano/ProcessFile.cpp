@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <bitset>
 
 bool compare(const FreqSymbol left, const FreqSymbol right)
 {
@@ -45,13 +46,24 @@ ProcessFileCodes::ProcessFileCodes() {
 
 vector<CodeSymbol>* ProcessFileCodes::GetCodes(ifstream& file) {
 	string line;
+	int fakeBits;
 	while (getline(file, line)) {
 		string code;
-		originalText += line;
-		for (int i = 2; i < line.length(); i++) {
-			code += line[i];
+		if (!line.empty()){
+			fakeBits = line[1];
+			for (int i = 2; i < line.length(); i++) {
+				bitset<8> byte(line[i]);
+				code += byte.to_string();
+			}
+			if (code.length() > fakeBits)
+				codes->push_back(CodeSymbol(line[0], code.substr(fakeBits)));
+			else
+				codes->push_back(CodeSymbol(line[0], ""));
 		}
-		codes->push_back(CodeSymbol(line[0], code));
+		else{
+			bitset<8> byte('\n');
+			(*codes)[codes->size() - 1].code += byte.to_string().substr(fakeBits);
+		}
 	}
 	return codes;
 }

@@ -2,12 +2,12 @@
 #include <iostream>
 #include <fstream>
 
-void Interface::ProcessEncoding() {
-	ifstream codesFile("C:/Games/DM/CODES.txt");
-	Decoding encoding(codesFile);
+void Interface::ProcessDecoding() {
+	ifstream codesFile("C:/Games/DM/CODES.txt", ifstream::binary);
+	Decoding decoding(codesFile);
 	codesFile.close();
 	ifstream encodeFile("C:/Games/DM/CODED_FILE.txt");
-	string result = encoding.ProcessDecoding(encodeFile);
+	string result = decoding.ProcessDecoding(encodeFile);
 	encodeFile.close();
 	cout << result << endl;
 }
@@ -18,7 +18,7 @@ void Interface::ProcessCoding() {
 	file.close();
 	coding.Fano();
 	coding.PrintConsole();
-	ofstream fileCodes("C:/Games/DM/CODES.txt");
+	ofstream fileCodes("C:/Games/DM/CODES.txt", ofstream::binary);
 	coding.PrintCodesInFile(fileCodes);
 	fileCodes.close();
 	ofstream fileCoded("C:/Games/DM/CODED_FILE.txt");
@@ -29,30 +29,33 @@ void Interface::ProcessCoding() {
 	fileCodedBy.close();
 }
 
-void Interface::ProcessEncodingBy() {
-	ifstream codesFile("C:/Games/DM/CODES.txt");
-	Decoding encoding(codesFile);
+void Interface::ProcessDecodingBy() {
+	ifstream codesFile("C:/Games/DM/CODES.txt", ifstream::binary);
+	Decoding decoding(codesFile);
 	codesFile.close();
-	ifstream encodeFile("C:/Games/DM/CODED_FILE_BY.txt");
-	string result = encoding.ProcessDecodingBy(encodeFile);
+	ifstream encodeFile1("C:/Games/DM/CODED_FILE.txt");
+	string res = decoding.ProcessDecoding(encodeFile1);
+	encodeFile1.close();
+	ifstream encodeFile("C:/Games/DM/CODED_FILE_BY.txt", ifstream::binary);
+	string result = decoding.ProcessDecodingBy(encodeFile);
 	encodeFile.close();
-	cout << result << endl;
+	cout << res << endl;
 }
 
 void Interface::ProcessUser() {
 	int point = -1;
 	while (point != 4) {
-		cout << "Enter number:\n1: coding file\n2: encoding file\n3: encoding bynary\n4: exit\n";
+		cout << "Enter number:\n1: coding file\n2: decoding file\n3: decoding bynary\n4: exit\n";
 		cin >> point;
 		switch (point) {
 		case 1:
 			ProcessCoding();
 			break;
 		case 2:
-			ProcessEncoding();
+			ProcessDecoding();
 			break;
 		case 3:
-			ProcessEncodingBy();
+			ProcessDecodingBy();
 			break;
 		case 4:
 			break;

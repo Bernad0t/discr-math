@@ -18,12 +18,16 @@ class Stack {
 
 			List(FanoParametrs* a);
 
+			~List();
+
 			FanoParametrs* item;
 			List* next;
 		};
+		void DeleteTree(List* tree);
 	public:
 		List* head;
 		Tree();
+		~Tree();
 
 		void push(FanoParametrs* a);
 

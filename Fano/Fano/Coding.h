@@ -12,6 +12,7 @@ public:
 	void PrintCodesInFile(ofstream& file);
 	void PrintBynaryFile(ofstream& file);
 	Coding(ifstream& file);
+	~Coding();
 	void Fano();
 private:
 	string originalText;
@@ -24,8 +25,8 @@ private:
 
 class Decoding {
 public:
-	void PrintInFile();
 	Decoding(ifstream& codesFile);
+	~Decoding();
 	string ProcessDecoding(ifstream& encodeFile);
 	string ProcessDecodingBy(ifstream& encodeFile);
 private:

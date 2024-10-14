@@ -10,12 +10,27 @@ Stack::Tree::List::List(FanoParametrs* a) {
 	next = nullptr;
 }
 
+Stack::Tree::List::~List() {
+	delete item;
+}
+
 FanoParametrs* Stack::Tree::top() {
 	return head->item;
 }
 
 Stack::Tree::Tree() {
 	head = nullptr;
+}
+
+void Stack::Tree::DeleteTree(List* tree){
+	if (tree == nullptr)
+		return;
+	DeleteTree(tree->next);
+	delete tree;
+}
+
+Stack::Tree::~Tree() {
+	DeleteTree(head);
 }
 
 void Stack::Tree::push(FanoParametrs* a) {
