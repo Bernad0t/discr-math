@@ -51,7 +51,7 @@ string Decoding::ProcessDecodingBy(ifstream& encodeFile) {
 		if (fakeBits == -1)
 			fakeBits = line[0];
 		if (flagNumberLine) {
-			str += "1010";
+			str += "00001010";
 			flagNumberLine = false;
 		}
 		for (int i = 0; i < line.length(); i++) {

@@ -33,13 +33,17 @@ void Interface::ProcessDecodingBy() {
 	ifstream codesFile("C:/Games/DM/CODES.txt", ifstream::binary);
 	Decoding decoding(codesFile);
 	codesFile.close();
-	ifstream encodeFile1("C:/Games/DM/CODED_FILE.txt");
+	/*ifstream encodeFile1("C:/Games/DM/CODED_FILE.txt");
 	string res = decoding.ProcessDecoding(encodeFile1);
-	encodeFile1.close();
+	encodeFile1.close();*/
 	ifstream encodeFile("C:/Games/DM/CODED_FILE_BY.txt", ifstream::binary);
+
+	// До данного гениального решения додумался Артем "azya0" Соколов
+	encodeFile.unsetf(ios_base::skipws);
+	
 	string result = decoding.ProcessDecodingBy(encodeFile);
 	encodeFile.close();
-	cout << res << endl;
+	cout << result << endl;
 }
 
 void Interface::ProcessUser() {
