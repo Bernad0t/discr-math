@@ -1,7 +1,8 @@
 #include "./BipartiteGraph.h"
+#include "./Interface.h"
 
 int main() {
-	vector<vector<int>> vec{
+	/*vector<vector<int>> vec{
 		{1, 1, 1, 0, 0},
 		{1, 1, 0, 1, 1},
 		{1, 1, 1, 0, 1},
@@ -10,6 +11,7 @@ int main() {
 
 	BipartiteGraph graph(move(vec));
 	graph.GetMaxMatching();
-	graph.GetMaxMatchingReq();
+	graph.GetMaxMatchingReq();*/
+	Interface::processUser();
 	return 0;
 }

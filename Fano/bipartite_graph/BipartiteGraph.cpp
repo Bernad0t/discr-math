@@ -43,7 +43,8 @@ void BipartiteGraph::SearchAug(int v1)
         for (int v2 : v2_for_v1_i[stackStep.top().v1]) {
             if (stackStep.top().v2_checked.size() > 1 && find(stackStep.top().v2_checked.begin(), stackStep.top().v2_checked.end() - 1, v2) != stackStep.top().v2_checked.end() - 1)
                 continue;
-            stackStep.top().v2_checked.push_back(v2);
+            if (find(stackStep.top().v2_checked.begin(), stackStep.top().v2_checked.end(), v2) == stackStep.top().v2_checked.end())
+                stackStep.top().v2_checked.push_back(v2);
             bool res_is_true = stackStep.top().result != nullptr && *stackStep.top().result;
             if (matching[v2] == -1 || res_is_true) {
                 matching[v2] = stackStep.top().v1; // инвертируем

@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BipartiteGraph.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="ProcessFile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BipartiteGraph.cpp" />
