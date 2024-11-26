@@ -18,7 +18,17 @@ public:
 			return;
 		else if (y == 'y') {
 			vector<int> matching = graph.GetMaxMatching();
+			cout << "not req" << endl;
 			for (int i = 0; i < matching.size(); i++) {
+				if (matching[i] == -1)
+					continue;
+				cout << "(" << i << ", " << matching[i] << ")" << endl;
+			}
+			cout << endl << "req" << endl;
+			matching = graph.GetMaxMatchingReq();
+			for (int i = 0; i < matching.size(); i++) {
+				if (matching[i] == -1)
+					continue;
 				cout << "(" << i << ", " << matching[i] << ")" << endl;
 			}
 		}
