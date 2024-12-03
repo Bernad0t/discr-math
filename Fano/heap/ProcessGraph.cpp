@@ -11,8 +11,9 @@ vector<pair<int, int>> ProcessGraph::GetEdge(vector<int> powers)
         if (heap.heap.size() == 1 && heap.heap[0].first != 0)
             throw string("unreal create graph");
         current = heap.getMax();
+        int size = heap.heap.size();
         for (int k = 0; k < current.first; k++) {
-            if (k == heap.heap.size())
+            if (k == size)
                 throw string("unreal create graph");
             next = heap.getMax();
             edges.push_back(pair<int, int>(current.second, next.second));

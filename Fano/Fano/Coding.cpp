@@ -27,13 +27,15 @@ int Coding::Med(int startProcess, int endProcess) {
 	float secondSum = (*enterArr)[endProcess].freq;
 	int med = endProcess;
 	float d;
+	int prev_med = med;
 	do {
 		d = abs(firstSum - secondSum);
+		prev_med = med;
 		med -= 1;
 		firstSum -= (*enterArr)[med].freq;
 		secondSum += (*enterArr)[med].freq;
 	} while (abs(firstSum - secondSum) <= d);
-	return med;
+	return prev_med;
 }
 
 void Coding::Fano() {
@@ -43,12 +45,12 @@ void Coding::Fano() {
 		FanoParametrs* topStack = stack.pop();
 		int med = Med(topStack->startProcess, topStack->endProcess);
 		for (int i = topStack->startProcess; i <= topStack->endProcess; i++) {
-			(*doneArr)[i].code += i > med ? "1" : "0";
+			(*doneArr)[i].code += i >= med ? "1" : "0";
 		}
-		if (med > topStack->startProcess)
+		if (med > topStack->startProcess + 1)
 			stack.push(new FanoParametrs(topStack->startProcess, med));
-		if (topStack->endProcess > med + 1)
-			stack.push(new FanoParametrs(med + 1, topStack->endProcess));
+		if (topStack->endProcess > med)
+			stack.push(new FanoParametrs(med, topStack->endProcess));
 		delete topStack;
 	}
 	for (auto&& element : originalText) {

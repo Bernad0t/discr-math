@@ -15,10 +15,20 @@ void Interface::processInputUser()
 		switch (answer)
 		{
 		case 2:
-			createGraphWithPowerSqhema();
+			try {
+				createGraphWithPowerSqhema();
+			}
+			catch(string message) {
+				cout << message << endl;
+			}
 			break;
 		case 1:
-			writeGraphLikePower();
+			try {
+				writeGraphLikePower();
+			}
+			catch (string message) {
+				cout << message << endl;
+			}
 			break;
 		default:
 			break;
@@ -40,7 +50,7 @@ void Interface::writeGraphLikePower()
 
 void Interface::createGraphWithPowerSqhema()
 {
-	ifstream file("C:/Games/DM/heap/powersSqhema.txt");
+	ifstream file("C:/Games/DM/heap/powersSqhema1.txt");
 	string line;
 	getline(file, line);
 	int power;
