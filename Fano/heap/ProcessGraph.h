@@ -1,5 +1,6 @@
 #pragma once
 #include "heap.h"
+#include <algorithm>
 class ProcessGraph
 {
 public:
@@ -16,6 +17,7 @@ public:
 			}
 			result.push_back(power);
 		}
+		sort(result.rbegin(), result.rend());
 		return result;
 	}
 };

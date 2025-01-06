@@ -39,18 +39,23 @@ void Interface::processInputUser()
 void Interface::writeGraphLikePower()
 {
 	ifstream file("C:/Games/DM/heap/graph.txt");
+	ofstream filePowers("C:/Games/DM/heap/myPowers.txt");
 	vector<vector<int>> matrix = ProcessFile::GetBipGraph(file);
 	vector<int> powers = ProcessGraph::GetPowers(matrix);
 	cout << "powers: ";
-	for (int i : powers)
+	for (int i : powers) {
 		cout << i << " ";
+		filePowers << i << " ";
+	}
 	cout << endl;
 	file.close();
+	filePowers.close();
 }
 
 void Interface::createGraphWithPowerSqhema()
 {
-	ifstream file("C:/Games/DM/heap/powersSqhema1.txt");
+	ifstream file("C:/Games/DM/heap/powersSqhema2.txt");
+	ofstream fileGraph("C:/Games/DM/heap/myEdges.txt");
 	string line;
 	getline(file, line);
 	int power;
@@ -62,6 +67,8 @@ void Interface::createGraphWithPowerSqhema()
 	cout << "edges:\n";
 	for (pair<int, int> edge : edges) {
 		cout << "(" << edge.first << ", " << edge.second << ")" << endl;
+		fileGraph << "(" << edge.first << ", " << edge.second << ")" << endl;
 	}
 	file.close();
+	fileGraph.close();
 }

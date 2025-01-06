@@ -54,7 +54,7 @@ string Decoding::ProcessDecodingBy(ifstream& encodeFile) {
 			str += "00001010";
 			flagNumberLine = false;
 		}
-		for (int i = 0; i < line.length(); i++) {
+		for (int i = 0; i < line.length() - 1; i++) {
 			bitset<8> code(line[i]);
 			str += code.to_string();
 		}

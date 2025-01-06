@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bipartite_graph", "bipartit
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "heap", "heap\heap.vcxproj", "{E13E7F49-3A4F-4596-B41A-0E3A34EE747E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GamiltonCycle", "GamiltonCycle\GamiltonCycle.vcxproj", "{2B243FBA-A278-4568-8BF9-079F1D55D329}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{E13E7F49-3A4F-4596-B41A-0E3A34EE747E}.Release|x64.Build.0 = Release|x64
 		{E13E7F49-3A4F-4596-B41A-0E3A34EE747E}.Release|x86.ActiveCfg = Release|Win32
 		{E13E7F49-3A4F-4596-B41A-0E3A34EE747E}.Release|x86.Build.0 = Release|Win32
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Debug|x64.ActiveCfg = Debug|x64
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Debug|x64.Build.0 = Debug|x64
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Debug|x86.ActiveCfg = Debug|Win32
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Debug|x86.Build.0 = Debug|Win32
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Release|x64.ActiveCfg = Release|x64
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Release|x64.Build.0 = Release|x64
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Release|x86.ActiveCfg = Release|Win32
+		{2B243FBA-A278-4568-8BF9-079F1D55D329}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
